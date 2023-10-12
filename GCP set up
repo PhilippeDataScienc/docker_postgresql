@@ -1,0 +1,24 @@
+# create ssh
+# (go to ~/.ssh)
+    ssh-keygen -t rsa -f gcp -C pacquier -b 2048
+
+# generate pub key + private key
+# read the public key
+    cat gcp.pub
+
+# connect in ssh to GCP VM [-i identity_file]
+    ssh -i ~/.ssh/gcp pacquier@104.199.4.40
+
+# set up envirenment
+    # download anaconda
+    wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+    # install anaconda
+    bash Anaconda3-2023.09-0-Linux-x86_64.sh
+
+# configure ssh connection with config file in .ssh/config
+    Host de-zoomcamp
+        HostName 104.199.4.40
+        User pacquier
+        IdentityFile c:/Users/pacquier/.ssh/gcp
+# puis connection en ssh via 
+    ssh de-zoomcamp
